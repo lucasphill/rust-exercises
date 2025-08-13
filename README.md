@@ -1,3 +1,4 @@
+[https://doc.rust-lang.org](https://doc.rust-lang.org/stable/book/title-page.html)
 ### Declarando variavel
 `let mut guess = String::new();`
 - `let` - informa ao compilador que criará uma nova variável
@@ -28,6 +29,15 @@ use std::{cmp::Ordering, io};
 use rand::Rng;
 ```
 
+#### Instalando novas dependencias
+```toml
+// Cargo.toml
+[dependencies]
+rand = "0.8.5"
+```
+#### Atualizando dependencias
+`cargo update`
+
 ### Recebendo valor pelo terminal
 ```rust
 io::stdin()
@@ -36,7 +46,7 @@ io::stdin()
 ```
 - `io` - biblioteca importada que possui a função
 - `::stdin()` - função padrão da biblioteca io para obter um valor do terminal
-- `.read_line(&mut guess)` - faz a leitura da entrada do usuário no terminal
+- `.read_line(&mut guess)` - faz a leitura da entrada do usuário no terminal. &mut permite que a função altere o valor da variavel guess.
 - `expect("mensagem")` - Trata possiveis erros na leitura. Se ocorrer erro, exibe a mensagem e encerra o programa. Se a leitura for bem sucedida o programa continua normalmente
 
 ### Convertendo valor texto para numero
@@ -71,7 +81,7 @@ match guess.cmp(&secret_number) {
     Ordering::Greater => println!("Muito alto!"),
     Ordering::Equal => {
         println!("Venceu!");
-        break; // para ecerrar loop
+        break; // encerrar loop
     },
 }   
 ```
